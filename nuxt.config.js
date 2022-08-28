@@ -73,7 +73,7 @@ export default {
           type: '',
         },
         user: {
-          property: 'user',// user property는 사용하지 않는다.
+          property: false,// 아래의 login으로 실행 후 데이터 reponse명을 따로 지정하지 않는다.
         },
         autoLogout: true,
         endpoints: {
