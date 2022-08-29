@@ -1,40 +1,77 @@
 <template>
-  <div>
-    <form @submit.prevent="userLogin">
-      <div>
-        <label>Username</label>
-        <input type="text" v-model="login.adminUserId" />
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-4 is-offset-4">
+            <h2 class="title has-text-centered">Welcome back!</h2>
+  
+            <Notification :message="error" v-if="error"/>
+  
+            <form method="post" @submit.prevent="login">
+              <div class="field">
+                <label class="label">Id</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    v-model="loginData.adminUserId"
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input
+                    type="password"
+                    class="input"
+                    v-model="loginData.adminUserPwd"
+                  />
+                </div>
+              </div>
+              <div class="control">
+                <button type="submit" class="button is-dark is-fullwidth">Log In</button>
+              </div>
+            </form>
+            <div class="has-text-centered" style="margin-top: 20px">
+              <p>
+                Don't have an account? <nuxt-link :to="'/register'">Register</nuxt-link>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>Password</label>
-        <input type="text" v-model="login.adminUserPwd" />
-      </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      login: {
-        username: '',
-        password: ''
+    </section>
+  </template>
+  
+  <script>
+  import Notification from '~/components/Notification'
+  
+  export default {
+    components: {
+      Notification,
+    },
+  
+    data() {
+      return {
+        loginData: {
+        adminUserId: '',
+        adminUserPwd: '',
+        },
+        error: null,
       }
-    }
-  },
-  methods: {
-    async userLogin() {
-      try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
-        console.log(response)
-      } catch (err) {
-        console.log(err)
+    },
+  
+    methods: {
+      async login() {
+        try {
+          await this.$auth.loginWith('local', {
+            data: this.loginData,
+          })
+  
+          await this.$router.push('/')
+        } catch (e) {
+          this.error = e.response.data.message
+        }
       }
     }
   }
-}
-</script>
+  </script>

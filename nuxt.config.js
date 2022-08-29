@@ -27,6 +27,10 @@ export default {
         rel: 'stylesheet',
         href: 'https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css',
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css'
+      },
     ],
   },
 
@@ -63,7 +67,6 @@ export default {
   },
 
   auth: {
-    plugins: ['~/plugins/auth.js'],
     strategies: {// 전략
       local: {
         scheme: 'refresh',// 계획은 refresh를 사용한다.
@@ -72,21 +75,20 @@ export default {
           global: true,
           type: '',
         },
+        refreshToken: {
+          property: 'refresh_token',
+        },        
         user: {
           property: false,// 아래의 login으로 실행 후 데이터 reponse명을 따로 지정하지 않는다.
         },
         autoLogout: true,
         endpoints: {
           login: { url: '/lunar/admin/auth/login', method: 'post' },
-          logout: { url: '/lunar/admin/auth/logout', method: 'post' },
           refresh: { url: '/lunar/admin/auth/refresh', method: 'post' },
           user: { url: '/lunar/admin/auth/user', method: 'get' },
+          logout: false
         },
       },
-    },
-    redirect: {
-      logout: '/login',
-      home: '/',
     },
   },
 
