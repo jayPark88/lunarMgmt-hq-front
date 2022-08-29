@@ -1,35 +1,48 @@
 <template>
+  <v-app>
   <section class="section">
     <div class="container">
       <div class="columns">
         <div class="column is-4 is-offset-4">
           <h2 class="title has-text-centered">Register!</h2>
 
-          <Notification :message="error" v-if="error"/>
+          <Notification :message="error" v-if="error" />
 
           <form method="post" @submit.prevent="register">
             <div class="field">
               <label class="label">adminUserId</label>
               <div class="control">
-                <input
-                  type="text"
-                  class="input"
-                  name="adminUserId"
-                  v-model="loginData.adminUserId"
-                  required 
-                />
+                <input type="text" class="input" name="adminUserId" v-model="loginData.adminUserId" required />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">adminUserNm</label>
+              <div class="control">
+                <input type="text" class="input" name="adminUserNm" v-model="loginData.adminUserNm" required />
               </div>
             </div>
             <div class="field">
               <label class="label">adminUserPwd</label>
               <div class="control">
-                <input
-                  type="password"
-                  class="input"
-                  name="password"
-                  v-model="loginData.adminUserPwd"
-                  required
-                />
+                <input type="password" class="input" name="password" v-model="loginData.adminUserPwd" required />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">dept</label>
+              <div class="control">
+                <input type="text" class="input" name="dept" v-model="loginData.dept" required />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">position</label>
+              <div class="control">
+                <input type="text" class="input" name="position" v-model="loginData.position" required />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Auth</label>
+              <div class="control">
+                <v-select v-model="loginData.authSeq" :items="authSelectList" item-value="authSeq" item-text="authNm"></v-select>
               </div>
             </div>
             <div class="control">
@@ -44,6 +57,7 @@
       </div>
     </div>
   </section>
+  </v-app>
 </template>
 
 <script>
@@ -55,28 +69,46 @@ export default {
     Notification,
   },
 
-  auth:false,
+  auth: false,
 
   data() {
     return {
       loginData: {
         adminUserId: '',
+        adminUserNm: '',
         adminUserPwd: '',
+        dept: '',
+        position: '',
+        authSeq: 1,
         error: null
-      },      
+      },
+      authSelectSearchData: {
+        authNm: "",
+      },
+      authSelectList: [],
+      error: null,
     }
+  },
+
+  async fetch() {
+    this.authSelectList = await this.$axios.$get(
+      '/lunar/admin/setting/auth/list',
+      {
+        params: this.authSelectSearchData,
+      }
+    )
   },
 
   methods: {
     async register() {
       try {
         await this.$axios.post('register', {
-            data: this.loginData,
-          })
+          data: this.loginData,
+        })
 
         await this.$auth.loginWith('local', {
-            data: this.loginData,
-          })
+          data: this.loginData,
+        })
 
         this.$router.push('/')
       } catch (e) {
