@@ -12,37 +12,37 @@
             <div class="field">
               <label class="label">adminUserId</label>
               <div class="control">
-                <input type="text" class="input" name="adminUserId" v-model="loginData.adminUserId" required />
+                <input type="text" class="input" name="adminUserId" v-model="adminUserData.adminUserId" required />
               </div>
             </div>
             <div class="field">
               <label class="label">adminUserNm</label>
               <div class="control">
-                <input type="text" class="input" name="adminUserNm" v-model="loginData.adminUserNm" required />
+                <input type="text" class="input" name="adminUserNm" v-model="adminUserData.adminUserNm" required />
               </div>
             </div>
             <div class="field">
               <label class="label">adminUserPwd</label>
               <div class="control">
-                <input type="password" class="input" name="password" v-model="loginData.adminUserPwd" required />
+                <input type="password" class="input" name="password" v-model="adminUserData.adminUserPwd" required />
               </div>
             </div>
             <div class="field">
               <label class="label">dept</label>
               <div class="control">
-                <input type="text" class="input" name="dept" v-model="loginData.dept" required />
+                <input type="text" class="input" name="dept" v-model="adminUserData.dept" required />
               </div>
             </div>
             <div class="field">
               <label class="label">position</label>
               <div class="control">
-                <input type="text" class="input" name="position" v-model="loginData.position" required />
+                <input type="text" class="input" name="position" v-model="adminUserData.position" required />
               </div>
             </div>
             <div class="field">
               <label class="label">Auth</label>
               <div class="control">
-                <v-select v-model="loginData.authSeq" :items="authSelectList" item-value="authSeq" item-text="authNm"></v-select>
+                <v-select v-model="adminUserData.authSeq" :items="authSelectList" item-value="authSeq" item-text="authNm"></v-select>
               </div>
             </div>
             <div class="control">
@@ -73,7 +73,7 @@ export default {
 
   data() {
     return {
-      loginData: {
+      adminUserData: {
         adminUserId: '',
         adminUserNm: '',
         adminUserPwd: '',
@@ -102,14 +102,7 @@ export default {
   methods: {
     async register() {
       try {
-        await this.$axios.post('register', {
-          data: this.loginData,
-        })
-
-        await this.$auth.loginWith('local', {
-          data: this.loginData,
-        })
-
+        await this.$axios.post('/lunar/admin/system/save/user', this.adminUserData)
         this.$router.push('/')
       } catch (e) {
         this.error = e.response.data.message
