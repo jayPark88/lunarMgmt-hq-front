@@ -1,4 +1,98 @@
 // Ref: https://github.com/nuxt-community/vuetify-module#customvariables
 //
 // The variables you want to modify
-// $font-size-root: 20px;
+$colors: (
+  white: #fff,
+  gray-100: #f9f9f9,
+  gray-200: #eeeeee,
+  gray-300: #dfdfdf,
+  gray-400: #dadada,
+  gray-500: #b8b8b8,
+  gray-600: #acacac,
+  gray-700: #7e7e7e,
+  gray-800: #5f5f5f,
+  gray-900: #131313,
+  black: #000,
+  blue: #0094b4,
+  azure: #070808,
+  indigo: #6574cd,
+  purple: #7f53ac,
+  pink: #fc5296,
+  red: #ff2929,
+  orange: #e13b01,
+  yellow: #ffb437,
+  lime: #7bd235,
+  green: #43a047,
+  teal: #1caf9f,
+  cyan: #00a5d1,
+  gray: #5a6970,
+  light-indig: #cfcfe3,
+  sky: #529cf7,
+  primary: #05a7c4,
+  main-bg: #efeff0,
+  point: #05a7c4,
+);
+
+$font-colors: (
+  base-font: #676767,
+  title-font: #111111,
+  point-font: #0078aa,
+  inactive-font: #bababa,
+);
+
+$search-colors: (
+  top-line: #636363,
+  bottom-line: #d4d4d4,
+  title-bg: #ececec,
+);
+
+$table-colors: (
+  top-line: #707070,
+  top-bg: #ebebeb,
+  th-line: #dddddd,
+  td-line: #d5d5d5,
+  tdL-line: #ececec,
+  tr-bg: #fffbcc,
+);
+
+$paging-colors: (
+  border-line: #eaeaea,
+);
+
+$reg-colors: (
+  tit-bg: #ececec,
+  tit-line: #d4d4d4,
+  tit-Lline: #e4e4e4,
+  txt-color: #5c5c5c,
+);
+
+$btn-colors: (
+  search-bg: #3c3c3c,
+  line-color: #6c6c6c,
+  font-new: #1b1b1b,
+);
+
+$tab-colors: (
+  line-color: #b4b4b4,
+);
+
+$footer-colors: (
+  bg-color: #6f717c,
+);
+
+$dash-colors: (
+  card-line: #d3d3d3,
+  card-tit: #111111,
+  card-sub-title: #949494,
+  line-div: #dedede,
+  up: #ed0000,
+  down: #00a4f1,
+  zero: #adadad,
+  same: #6f717c,
+  reserve-sub: #009ca6,
+  text1: #2b2b2b,
+);
+
+// font
+$font-family-sans-serif: 'AppleSDGothicNeo', sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;

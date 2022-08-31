@@ -3,6 +3,7 @@
     <section id="main">
       <Navigation  class="main-navigation" v-if="isAuthenticated"/>
       <div class="content_wrap">
+        <TheHeader />
         <v-main>
           <v-container class="main-container">
             <Nuxt keep-alive :max="300" />
@@ -20,6 +21,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Navigation from '~/components/navigation/TheNavigation.vue'
+import TheHeader from '~/components/header/TheHeader.vue'
 
 export default {
   computed: {
@@ -27,7 +29,7 @@ export default {
   },
 
   components: {
-    Navigation
+    Navigation, TheHeader
   }
 }
 </script>
