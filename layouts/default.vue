@@ -14,7 +14,7 @@
     <v-footer fixed>
       <span>COPYRIGHT © WISEAI. All Rights Reserved</span>
     </v-footer>
-    <TheLoading />
+    <!-- <TheLoading /> -->
   </v-app>
 </template>
 

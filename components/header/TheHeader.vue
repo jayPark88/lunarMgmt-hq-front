@@ -92,19 +92,13 @@ export default {
     logout() {
       this.$auth.isLogouted = true
       this.$auth.logout('local')
-      this.localStorage.removeItem('auth._token.local')
       this.$store.commit('setNaviMenu', {})
+      this.$router.push('/login')
     },
     getUserInfo() {
       let userInfo = ''
       if (this.$auth.$state.user) {
-        const siteName = this.$auth.$state.user.siteName
-        const businessTypeName = this.$auth.$state.user.businessTypeName
-
-        if (siteName && businessTypeName)
-          userInfo = `${siteName}(${businessTypeName}) `
-
-        const userNm = this.$auth.$state.user.userNm
+        const userNm = this.$auth.$state.user.adminUserNm
         userInfo += `${userNm}님`
       }
 
