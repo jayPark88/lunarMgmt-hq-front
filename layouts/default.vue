@@ -3,7 +3,7 @@
     <section id="main">
       <Navigation  class="main-navigation" v-if="isAuthenticated"/>
       <div class="content_wrap">
-        <TheHeader />
+        <TheHeader v-if="isAuthenticated"/>
         <v-main>
           <v-container class="main-container">
             <Nuxt keep-alive :max="300" />
