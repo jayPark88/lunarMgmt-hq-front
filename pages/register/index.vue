@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import Notification from '~/components/Notification'
+import Notification from '~/components/etc/Notification'
 
 export default {
   middleware: 'guest',

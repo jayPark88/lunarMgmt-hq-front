@@ -14,7 +14,7 @@
     <v-footer fixed>
       <span>COPYRIGHT © WISEAI. All Rights Reserved</span>
     </v-footer>
-    <!-- <TheLoading /> -->
+    <TheLoading />
   </v-app>
 </template>
 
@@ -22,6 +22,7 @@
 import { mapGetters } from 'vuex'
 import Navigation from '~/components/navigation/TheNavigation.vue'
 import TheHeader from '~/components/header/TheHeader.vue'
+import TheLoading from '~/components/utils/TheLoading.vue'
 
 export default {
   computed: {
@@ -29,7 +30,7 @@ export default {
   },
 
   components: {
-    Navigation, TheHeader
+    Navigation, TheHeader, TheLoading 
   }
 }
 </script>

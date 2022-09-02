@@ -47,6 +47,7 @@ export default {
       await this.$auth.loginWith('local', {
         data: this.loginData,
       })
+      this.$router.push('/')
       this.$auth.isLogouted = false
     },
   },
