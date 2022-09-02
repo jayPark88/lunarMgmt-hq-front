@@ -34,6 +34,11 @@ export default {
     ],
   },
 
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: [
+    '@/assets/common/common.scss',
+  ],
+  
   styleResources: {
     scss: ['~/assets/variables.scss'],
   },
@@ -77,7 +82,7 @@ export default {
         },
         refreshToken: {
           property: 'refresh_token',
-        },        
+        },
         user: {
           property: false,// 아래의 login으로 실행 후 데이터 reponse명을 따로 지정하지 않는다.
         },
