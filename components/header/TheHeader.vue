@@ -130,7 +130,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 28px 24px 16px;
+    padding: 26px 23px 15px;
   }
 
   #the-header__title {
@@ -184,7 +184,7 @@ export default {
   }
 
   #navigation-depth {
-    height: 28px;
+    height: 25px;
     border-bottom: 1px solid #dfdfdf;
     display: flex;
     align-items: center;

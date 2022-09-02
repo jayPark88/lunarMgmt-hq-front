@@ -1,24 +1,21 @@
 <template v-if="isAuthenticated">
     <div id="the-navigation">
-        <template v-if="simpleNavOn">
-            <div class="navi-logo shrink" @click="clickLogo">
-                <img src="~/assets/image/dashboard/building-estate-home-house-property-real-svgrepo-com.svg" />
-            </div>
-        </template>
-        <template v-else>
-            <div class="navi-logo" @click="clickLogo">
-                <img src="~/assets/image/dashboard/building-estate-home-house-property-real-svgrepo-com.svg" />
-            </div>
-        </template>
-        <span>네비게이션 리스트 있어야 하는 곳</span>
-        <div v-if="$nuxt.context.isDev" class="navi-shrink-button">
-            <v-checkbox v-model="simpleNavOn" dense hide-details></v-checkbox>
+        <div class="navi-logo" @click="clickLogo">
+            <img src="~/assets/image/dashboard/worldwide.png" />
         </div>
+        <NavigationMenuList
+            :active="true"
+            :simple-nav-on="simpleNavOn"
+            :menus="menus"
+            @clickMenuCallback="activeMenu"
+        />
     </div>
 </template>
 
 <script>
+import NavigationMenuList from './NavigationMenuList.vue'
 export default {
+    components: { NavigationMenuList },
     data() {
         return {
             naviHover: false,

@@ -1,33 +1,26 @@
 <template>
-    <div id="navi-background">
-        <div id="navi-menu" @mouseleave="showChildMenu = false">
-            <ul class="navi-menu-item-box">
-                <li v-for="(menu, index) in menus" :ref="`naviMenu${index}`" :key="index" class="navi-menu-item"
-                    :class="{ active: menu.active }" @mouseenter="enterMouseIntoParent(menu, index)">
-                    <div class="navi-menu-item__icon">
-                        <img :src="getMenuIconImage(menu)" />
-                        <v-badge v-if="isSimpleNavOn && menu.pageUrl === '/service'" :value="isUnreadCallHistoryExist"
-                            offset-x="-4" color="#05a7c4" bordered dot />
-                    </div>
-                    <div v-if="!isSimpleNavOn" class="navi-menu-item__name">
-                        {{  menu.menuNm  }}
-                        <v-badge v-if="menu.pageUrl === '/service'" :value="isUnreadCallHistoryExist" offset-x="-4"
-                            color="#05a7c4" bordered dot />
-                    </div>
-                </li>
-            </ul>
-            <ul v-show="showChildMenu" id="child-menu-box">
-                <li v-for="(childMenu, index) in hoverMenu.children" :key="index" :class="{ active: childMenu.active }">
-                    <div @click="clickMenu(childMenu)">
-                        {{  childMenu.menuNm  }}
-                        <v-badge v-if="childMenu.pageUrl === '/service/call'" :value="isUnreadCallHistoryExist"
-                            offset-x="-1" offset-y="-4" color="#05a7c4" bordered dot>
-                        </v-badge>
-                    </div>
-                </li>
-            </ul>
-        </div>
+  <div id="navi-background">
+    <div id="navi-menu" @mouseleave="showChildMenu = false">
+      <ul class="navi-menu-item-box">
+        <li v-for="(menu, index) in menus" :ref="`naviMenu${index}`" :key="index" class="navi-menu-item"
+          :class="{ active: menu.active }" @mouseenter="enterMouseIntoParent(menu, index)">
+          <div class="navi-menu-item__icon">
+            <img :src=menu.offImageUrl>
+          </div>
+          <div v-if="!isSimpleNavOn" class="navi-menu-item__name">
+            {{ menu.menuNm }}
+          </div>
+        </li>
+      </ul>
+      <ul v-show="showChildMenu" id="child-menu-box">
+        <li v-for="(childMenu, index) in hoverMenu.children" :key="index" :class="{ active: childMenu.active }">
+          <div @click="clickMenu(childMenu)">
+            {{ childMenu.menuNm }}
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 
 <script>
@@ -141,88 +134,88 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    #navi-background {
-      height: auto;
-    
-      #navi-menu {
-        .navi-menu-item-box {
-          list-style: none;
-          padding: 0;
-    
-          .navi-menu-item {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            height: 64px;
-            border-bottom: 1px solid #889095;
-            color: #ffffff;
-            padding: 8px;
-            justify-content: center;
-    
-            &.active,
-            &:hover {
-              background-color: white;
-              color: #05a7c4;
-              cursor: pointer;
-            }
-    
-            .navi-menu-item__icon {
-              width: 32px;
-              height: auto;
-              display: flex;
-    
-              img {
-                width: 100%;
-                height: 100%;
-              }
-            }
-    
-            .navi-menu-item__name {
-              width: 68%;
-              padding-left: 16px;
-              font-size: 1.5rem;
-              font-weight: 600;
-              display: flex;
-              align-items: center;
-            }
+#navi-background {
+  height: auto;
+
+  #navi-menu {
+    .navi-menu-item-box {
+      list-style: none;
+      padding: 0;
+
+      .navi-menu-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 64px;
+        border-bottom: 1px solid #889095;
+        color: #ffffff;
+        padding: 8px;
+        justify-content: center;
+
+        &.active,
+        &:hover {
+          background-color: white;
+          color: #05a7c4;
+          cursor: pointer;
+        }
+
+        .navi-menu-item__icon {
+          width: 32px;
+          height: auto;
+          display: flex;
+
+          img {
+            width: 100%;
+            height: 100%;
           }
         }
-    
-        #child-menu-box {
-          list-style: none;
-          position: absolute;
-          z-index: 9;
-          width: 192px;
-          padding: 16px 24px 16px 32px;
-          background-color: white;
-          border: 3px solid #0094b4;
-          box-shadow: 4px 4px 8px 0px rgb(0 0 0 / 20%);
-          font-size: 1.5rem;
-          color: #666666;
+
+        .navi-menu-item__name {
+          width: 68%;
+          padding-left: 16px;
+          font-size: 1.0rem;
+          font-weight: 600;
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-    
-          li {
-            min-height: 32px;
-            line-height: 32px;
-    
-            &:hover {
-              font-weight: bold;
-              color: #333333;
-              cursor: pointer;
-            }
-    
-            &.active {
-              font-weight: bold;
-              color: #0078aa;
-              border-bottom: 1px solid #0078aa;
-              border-width: medium;
-              height: 32px;
-              width: fit-content;
-            }
-          }
+          align-items: center;
         }
       }
     }
-    </style>
+
+    #child-menu-box {
+      list-style: none;
+      position: absolute;
+      z-index: 9;
+      width: 192px;
+      padding: 16px 24px 16px 32px;
+      background-color: white;
+      border: 3px solid #0094b4;
+      box-shadow: 4px 4px 8px 0px rgb(0 0 0 / 20%);
+      font-size: 1.0rem;
+      color: #666666;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      li {
+        min-height: 32px;
+        line-height: 32px;
+
+        &:hover {
+          font-weight: bold;
+          color: #333333;
+          cursor: pointer;
+        }
+
+        &.active {
+          font-weight: bold;
+          color: #0078aa;
+          border-bottom: 1px solid #0078aa;
+          border-width: medium;
+          height: 32px;
+          width: fit-content;
+        }
+      }
+    }
+  }
+}
+</style>
