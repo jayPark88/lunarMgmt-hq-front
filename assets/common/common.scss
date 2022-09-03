@@ -428,6 +428,7 @@ html {
     .reg-formTitle {
       background-color: #d4d4d4;
       font-weight: 500;
+      font-size: 1.0rem;
       color: #000;
       display: flex;
       align-items: center;
@@ -480,6 +481,7 @@ html {
   .v-text-field input {
     padding: 9px 10px 9px !important;
     border-radius: 0;
+    font-size: 1.0rem;
   }
   .v-select.v-input--dense .v-select__selection--comma {
     margin: 5px 4px 3px 10px !important;
@@ -506,6 +508,7 @@ html {
   .theme--light.v-input input,
   .theme--light.v-input textarea {
     color: #424242 !important;
+    font-size: 1.0rem;
   }
   .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat)
     > .v-input__control
@@ -545,6 +548,7 @@ html {
   }
   .cardConTxt {
     color: #5f5f5f;
+    font-size: 1.0rem;
   }
   
   /*v-dialog*/
