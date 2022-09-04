@@ -8,13 +8,40 @@
         </v-btn>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col class="check-table-style">
+        <v-data-table
+          v-model="selectedAuthUserList"
+          :headers="authUserheader"
+          :items="authUserList"
+          item-key="adminUserId"
+          show-select
+          hide-default-footer
+          disable-pagination
+          class="userList"
+        >
+        </v-data-table>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="d-flex justify-end pr-0 pb-0 pl-0">
+        <v-btn color="blue-grey" dark @click="deleteUserAuth()">
+          사용자 삭제
+        </v-btn>
+      </v-col>
+    </v-row>
     <v-dialog v-model="dialog" persistent>
       <div class="popup-style">
         <v-card class="user-list__vcard">
           <v-card-title> 사용자 추가 </v-card-title>
           <v-card-text>
-            <SearchUser ref="searchUserRef" :pagination="pagination" is-popup @setData="setUserList"
-              @close="dialog = false" />
+            <SearchUser
+              ref="searchUserRef"
+              :pagination="pagination"
+              is-popup
+              @setData="setUserList"
+              @close="dialog = false"
+            />
             <v-row>
               <v-col class="search-button-box d-flex justify-end">
                 <v-btn width="80px" color="primary mb-1" @click="push">
@@ -23,86 +50,35 @@
               </v-col>
             </v-row>
             <div class="data-table-style">
-              <v-data-table v-model="selectedAuthUserList" hide-default-footer show-select item-key="adminUserId"
-                :headers="headers" :items="userList" :page.sync="pagination.page" :items-per-page="pagination.size">
+              <v-data-table
+                v-model="selectedAuthUserList"
+                hide-default-footer
+                show-select
+                item-key="userId"
+                :headers="headers"
+                :items="userList"
+                :page.sync="pagination.page"
+                :items-per-page="pagination.size"
+              >
               </v-data-table>
-              <Pagination :pagination.sync="pagination" :table-data-length="userList.length" />
+              <Pagination
+                :pagination.sync="pagination"
+                :table-data-length="userList.length"
+              />
             </div>
           </v-card-text>
         </v-card>
       </div>
     </v-dialog>
-    <!-- <v-row>
-        <v-col class="check-table-style">
-          <v-data-table
-            v-model="selectedAuthUserList"
-            :headers="authUserheader"
-            :items="authUserList"
-            item-key="userId"
-            show-select
-            hide-default-footer
-            disable-pagination
-            class="userList"
-          >
-          </v-data-table>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col class="d-flex justify-end pr-0 pb-0 pl-0">
-          <v-btn color="blue-grey" dark @click="deleteUserAuth()">
-            사용자 삭제
-          </v-btn>
-        </v-col>
-      </v-row>
-      <v-dialog v-model="dialog" persistent>
-        <div class="popup-style">
-          <v-card class="user-list__vcard">
-            <v-card-title> 사용자 추가 </v-card-title>
-            <v-card-text>
-              <SearchUser
-                ref="searchUserRef"
-                :pagination="pagination"
-                is-popup
-                @setData="setUserList"
-                @close="dialog = false"
-              />
-              <v-row>
-                <v-col class="search-button-box d-flex justify-end">
-                  <v-btn width="80px" color="primary mb-1" @click="push">
-                    등록
-                  </v-btn>
-                </v-col>
-              </v-row>
-              <div class="data-table-style">
-                <v-data-table
-                  v-model="selectedAuthUserList"
-                  hide-default-footer
-                  show-select
-                  item-key="userId"
-                  :headers="headers"
-                  :items="userList"
-                  :page.sync="pagination.page"
-                  :items-per-page="pagination.size"
-                >
-                </v-data-table>
-                <Pagination
-                  :pagination.sync="pagination"
-                  :table-data-length="userList.length"
-                />
-              </div>
-            </v-card-text>
-          </v-card>
-        </div>
-      </v-dialog>
-      <PopupDialogs
-        :trigger="deleteModalTrigger"
-        close-icon
-        nagative-button
-        nagative-button-text="삭제"
-        text="해당 유저의 권한을 삭제하시겠습니까?"
-        @close="deleteModalTrigger = false"
-        @trigger="deleteTrigger()"
-      /> -->
+    <!-- <PopupDialogs
+      :trigger="deleteModalTrigger"
+      close-icon
+      nagative-button
+      nagative-button-text="삭제"
+      text="해당 유저의 권한을 삭제하시겠습니까?"
+      @close="deleteModalTrigger = false"
+      @trigger="deleteTrigger()"
+    /> -->
   </v-container>
 </template>
   
@@ -135,12 +111,12 @@
             text: '이름',
             align: 'start',
             sortable: false,
-            value: 'userNm',
+            value: 'adminUserNm',
           },
           {
             text: '아이디',
             align: 'false',
-            value: 'userId',
+            value: 'adminUserId',
             sortable: false,
           },
           {

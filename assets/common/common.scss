@@ -27,7 +27,7 @@ html {
   .v-list-item__title,
   .v-list-item__content,
   .v-btn__content {
-    font-size: 1.4rem !important;
+    font-size: 0.8rem !important;
   }
   
   .v-subheader {
@@ -286,7 +286,7 @@ html {
           border-left: 0 !important;
         }
         span {
-          font-size: 1.5rem;
+          font-size: 1.0rem;
           font-weight: 600;
           color: #000;
           display: inline-block;
@@ -309,7 +309,7 @@ html {
       td {
         border-bottom: 1px solid #d5d5d5 !important;
         border-left: 1px solid #ececec;
-        font-size: 1.5rem !important;
+        font-size: 1.0rem !important;
         font-weight: 400;
         &:first-child {
           border-left: 0 !important;
@@ -329,7 +329,7 @@ html {
           border-left: 0 !important;
         }
         span {
-          font-size: 1.6rem;
+          font-size: 1.0rem;
           font-weight: 600;
           color: #000;
           margin-top: 3px;
@@ -353,7 +353,7 @@ html {
       td {
         border-bottom: 1px solid #d5d5d5 !important;
         border-left: 1px solid #ececec;
-        font-size: 1.6rem !important;
+        font-size: 1.0rem !important;
         font-weight: 400;
         &:first-child {
           border-left: 0 !important;
@@ -704,6 +704,7 @@ html {
   /*setting*/
   .setting-top {
     .mandatory {
+      font-size: 1.0rem;
       display: flex;
       align-items: center;
       max-width: calc(100% - 200px) !important;
@@ -728,7 +729,7 @@ html {
         height: 100%;
         background: #ececec;
         color: #000;
-        font-size: 1.5rem;
+        font-size: 1.0rem;
         font-weight: 600;
         text-align: center;
         display: flex;
@@ -756,7 +757,7 @@ html {
         color: #fff;
         background-color: #3c3c3c !important;
         padding: 0 25px;
-        font-size: 1.6rem;
+        font-size: 1.0rem;
         font-weight: 500;
         min-width: 96px !important;
         height: 32px !important;
