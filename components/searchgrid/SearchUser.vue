@@ -56,7 +56,6 @@
         },
 
         init() {
-            alert('tt')
           this.initSearchData()
           this.search(1)
         },
