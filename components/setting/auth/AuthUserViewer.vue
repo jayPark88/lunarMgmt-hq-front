@@ -10,16 +10,8 @@
     </v-row>
     <v-row>
       <v-col class="check-table-style">
-        <v-data-table
-          v-model="selectedAuthUserList"
-          :headers="authUserheader"
-          :items="authUserList"
-          item-key="adminUserId"
-          show-select
-          hide-default-footer
-          disable-pagination
-          class="userList"
-        >
+        <v-data-table v-model="selectedAuthUserList" :headers="authUserheader" :items="authUserList"
+          item-key="adminUserId" show-select hide-default-footer disable-pagination class="userList">
         </v-data-table>
       </v-col>
     </v-row>
@@ -35,13 +27,8 @@
         <v-card class="user-list__vcard">
           <v-card-title> 사용자 추가 </v-card-title>
           <v-card-text>
-            <SearchUser
-              ref="searchUserRef"
-              :pagination="pagination"
-              is-popup
-              @setData="setUserList"
-              @close="dialog = false"
-            />
+            <SearchUser ref="searchUserRef" :pagination="pagination" is-popup @setData="setUserList"
+              @close="dialog = false" />
             <v-row>
               <v-col class="search-button-box d-flex justify-end">
                 <v-btn width="80px" color="primary mb-1" @click="push">
@@ -50,46 +37,24 @@
               </v-col>
             </v-row>
             <div class="data-table-style">
-              <v-data-table
-                v-model="selectedAuthUserList"
-                hide-default-footer
-                show-select
-                item-key="userId"
-                :headers="headers"
-                :items="userList"
-                :page.sync="pagination.page"
-                :items-per-page="pagination.size"
-              >
+              <v-data-table v-model="selectedAuthUserList" hide-default-footer show-select item-key="userId"
+                :headers="headers" :items="userList" :page.sync="pagination.page" :items-per-page="pagination.size">
               </v-data-table>
-              <Pagination
-                :pagination.sync="pagination"
-                :table-data-length="userList.length"
-              />
+              <Pagination :pagination.sync="pagination" :table-data-length="userList.length" />
             </div>
           </v-card-text>
         </v-card>
       </div>
     </v-dialog>
-    <!-- <PopupDialogs
-      :trigger="deleteModalTrigger"
-      close-icon
-      nagative-button
-      nagative-button-text="삭제"
-      text="해당 유저의 권한을 삭제하시겠습니까?"
-      @close="deleteModalTrigger = false"
-      @trigger="deleteTrigger()"
-    /> -->
   </v-container>
 </template>
   
   <script>
   import Pagination from '~/components/common/Pagination.vue'
-//   import PopupDialogs from '~/components/common/PopupDialogs.vue'
   import SearchUser from '~/components/searchgrid/SearchUser.vue'
   
   export default {
-    // components: { Pagination, PopupDialogs, SearchUser },
-    components: { Pagination, SearchUser },
+    components: { Pagination, SearchUser },    
     props: {
       auth: {
         type: Object,
@@ -163,7 +128,7 @@
       },
   
       createUserSeqList(userCheckedList) {
-        return userCheckedList.map((user) => user.userSeq)
+        return userCheckedList.map((user) => user.adminUserSeq)
       },
       push() {
         const userSeqList = this.createUserSeqList(this.selectedAuthUserList)
@@ -177,29 +142,17 @@
             alert(error.response.data.message)
           })
       },
-      deleteTrigger(boolean) {
-        if (!boolean) {
-          const userSeqList = this.createUserSeqList(this.selectedAuthUserList)
-          const queryString = userSeqList
-            .map((seq) => `userSeqList=${seq}`)
-            .join('&')
+      
+      deleteUserAuth() {
+          const userSeqList = this.createUserSeqList(this.selectedAuthUserList)         
           this.$axios
-            .delete(
-              `/lunar/admin/setting/auth/users/${this.auth.authSeq}?${queryString}`,
-            )
+            .delete(`/lunar/admin/setting/auth/users/${this.auth.authSeq}`,{data:userSeqList})
             .then(() => {
               this.$fetch()
             })
             .catch((error) => {
               alert(error.response.data.message)
             })
-        }
-      },
-      deleteUserAuth() {
-        this.deleteModalTrigger = true
-        // this.selectedAuthUserList.forEach(() => {
-        //
-        // })
       },
       setUserList(data) {
         this.userList = data.contents
