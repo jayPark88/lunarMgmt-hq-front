@@ -43,6 +43,10 @@ export default {
     scss: ['~/assets/variables.scss'],
   },
 
+  plugins: [
+    '~/plugins/commonFunction.js',    
+  ],
+
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
