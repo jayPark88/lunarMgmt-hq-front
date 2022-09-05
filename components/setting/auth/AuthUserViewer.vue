@@ -172,7 +172,6 @@
   .user-list__vcard {
     padding: 4%;
   }
-  
   .check-table-style {
     padding: 0;
   }
