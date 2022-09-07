@@ -37,7 +37,7 @@
               </v-col>
             </v-row>
             <div class="data-table-style">
-              <v-data-table v-model="selectedAuthUserList" hide-default-footer show-select item-key="userId"
+              <v-data-table v-model="selectedAuthUserList" hide-default-footer show-select item-key="adminUserId"
                 :headers="headers" :items="userList" :page.sync="pagination.page" :items-per-page="pagination.size">
               </v-data-table>
               <Pagination :pagination.sync="pagination" :table-data-length="userList.length" />
