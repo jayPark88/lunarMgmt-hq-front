@@ -67,7 +67,7 @@
             <AuthEditor v-if="tabIndex === OVERVIEW && editable" :auth="selectedAuth" :save-type="saveType"
               @change-to="changeToViewer" />
             <AuthUserViewer v-if="tabIndex === USER" :auth="selectedAuth" />
-            <!-- <AuthMenuVierwer v-if="tabIndex === MENU" :auth="selectedAuth" /> -->
+            <AuthMenuVierwer v-if="tabIndex === MENU" :auth="selectedAuth" />
           </v-card-text>
         </v-card>
       </v-col>
@@ -80,10 +80,10 @@
 import AuthEditor from '~/components/setting/auth/AuthEditor.vue'
 import AuthViewer from '~/components/setting/auth/AuthViewer.vue'
 import AuthUserViewer from '~/components/setting/auth/AuthUserViewer.vue'
+import AuthMenuVierwer from '~/components/setting/auth/AuthMenuVierwer.vue'
 
 export default {
-  // components: { AuthViewer, AuthEditor, AuthUserViewer, AuthMenuVierwer },
-  components: { AuthViewer, AuthEditor, AuthUserViewer },
+  components: { AuthViewer, AuthEditor, AuthUserViewer, AuthMenuVierwer },  
   data() {
     return {
       OVERVIEW: 0,
