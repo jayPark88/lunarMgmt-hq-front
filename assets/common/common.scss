@@ -5,7 +5,7 @@ html {
     color: #333333;
   }
   body {
-    font-size: 1.6rem;
+    font-size: 1.0rem;
     line-height: 1.5;
   }
   
@@ -27,20 +27,20 @@ html {
   .v-list-item__title,
   .v-list-item__content,
   .v-btn__content {
-    font-size: 0.8rem !important;
+    font-size: 1.0rem !important;
   }
   
   .v-subheader {
     font-weight: 600 !important;
-    font-size: 1.4rem !important;
+    font-size: 1.0rem !important;
   }
   
   .v-card__text {
-    font-size: 1.6rem !important;
+    font-size: 1.0rem !important;
   }
   
   .v-slider__thumb-label {
-    font-size: 1.4rem !important;
+    font-size: 1.0rem !important;
     font-weight: 600;
   }
   
@@ -77,7 +77,7 @@ html {
   
   // v-expansion-panel CSS
   .v-expansion-panel-header {
-    font-size: 1.8rem !important;
+    font-size: 1.0rem !important;
     font-weight: 600;
   }
   
@@ -191,7 +191,7 @@ html {
   .v-footer {
     width: 100%;
     height: 32px;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     font-weight: 100;
     text-align: center;
     justify-content: center;
@@ -205,7 +205,7 @@ html {
   }
   .sub_tit {
     color: #111111;
-    font-size: 1.6rem;
+    font-size: 1.0rem;
     font-weight: 700;
     padding-bottom: 4px;
   }
@@ -383,7 +383,7 @@ html {
   }
   .site-menu-body {
     height: 40px;
-    font-size: 1.4rem;
+    font-size: 1.0rem;
   
     .col {
       height: 100%;
@@ -418,7 +418,7 @@ html {
       }
   
       background-color: #ececec;
-      font-size: 1.6rem;
+      font-size: 1.0rem;
       font-weight: 600;
       color: #000;
       display: flex;
@@ -476,7 +476,7 @@ html {
   .v-input__slot {
     padding: 0 1px !important;
     min-height: 32px !important;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
   }
   .v-text-field input {
     padding: 9px 10px 9px !important;
@@ -521,7 +521,7 @@ html {
   }
   .v-select__selections {
     padding: 0 !important;
-    font-size: 1.4rem;
+    font-size: 1.0rem;
   }
   textarea {
     padding: 5px 20px 10px 11px !important;
@@ -580,7 +580,7 @@ html {
     }
     .v-card__text {
       padding: 34px 24px 25px !important;
-      font-size: 1.6rem;
+      font-size: 1.0rem;
     }
     .v-card__actions {
       border-top: 1px solid #eeeeee;
@@ -621,7 +621,7 @@ html {
         color: #fff !important;
       }
       .v-icon.v-icon {
-        font-size: 1.8rem !important;
+        font-size: 1.0rem !important;
       }
     }
     .dialog-close {
@@ -630,7 +630,7 @@ html {
       top: 32px;
   
       .theme--light.v-icon {
-        font-size: 1.6rem !important;
+        font-size: 1.0rem !important;
         color: #fff !important;
       }
     }
@@ -819,7 +819,7 @@ html {
   
   /*text-style*/
   .col_txt1 {
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     margin-top: 2px;
   }
   /*setting-menu*/
@@ -850,7 +850,7 @@ html {
     }
     .tree-style1 {
       padding: 0 10px 10px !important;
-      font-size: 15px;
+      font-size: 10px;
       color: #5f5f5f !important;
       height: 454px;
       overflow-y: auto;
@@ -906,7 +906,7 @@ html {
     border-right: 1px solid #d4d4d4 !important;
     box-shadow: none !important;
     .menuTit {
-      font-size: 1.6rem;
+      font-size: 1.0rem;
       font-weight: 600;
       border-bottom: 1px dotted #dfdfdf;
       height: 53px;
@@ -947,7 +947,7 @@ html {
   }
   .typo__label {
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1.0rem;
     color: #bbb;
     margin: 1.25rem 0 0.625rem;
   }
