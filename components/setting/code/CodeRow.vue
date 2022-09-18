@@ -5,10 +5,10 @@
       <v-col
         :cols="headers[0].cols"
         :class="headers[0].class"
-        @click="code.commonCodes.length > 0 ? expand(code) : null"
+        @click="code.commonCodeDtos.length > 0 ? expand(code) : null"
       >
         <v-icon
-          v-if="code.commonCodes.length > 0"
+          v-if="code.commonCodeDtos.length > 0"
           :class="{ active: code.open }"
         >
           mdi-chevron-down
@@ -65,7 +65,7 @@
         @click="expand(code)"
       >
         <v-icon
-          v-if="code.commonCodes.length > 0"
+          v-if="code.commonCodeDtos.length > 0"
           :class="{ active: code.open }"
         >
           mdi-arrow-down
