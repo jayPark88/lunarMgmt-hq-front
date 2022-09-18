@@ -92,12 +92,12 @@ export default {
 
             if (this.saveType === 'new')
                 this.$axios
-                    .$post('/admin/setting/auths', this.editableAuth)
+                    .$post('/lunar/admin/setting/auths', this.editableAuth)
                     .then(() => this.$emit('change-to', true))
                     .catch((error) => alert(error.response.data.message))
             else
                 this.$axios
-                    .$put('/admin/setting/auths', this.editableAuth)
+                    .$put('/lunar/admin/setting/auths', this.editableAuth)
                     .then(() => this.$emit('change-to', true))
                     .catch((error) => alert(error.response.data.message))
         },
