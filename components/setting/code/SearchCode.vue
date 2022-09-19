@@ -1,6 +1,6 @@
 <template>
   <div class="search__container">
-    <!-- search conditions -->
+    <!-- search conditions algo-->
     <v-row class="search-row">
       <v-col cols="1" class="search-title">검색어</v-col>
       <v-col cols="2" class="search-col">
